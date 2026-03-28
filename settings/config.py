@@ -1,0 +1,9 @@
+LLM_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+CHUNK_SIZE = 400
+CHUNK_OVERLAP = 50
+DOCS_PATH = "data/text"
+CHROMA_DB_PATH = "db/chroma_db"
+TOP_K = 3
+GAP = 0.01
+SIMILARITY_THRESHOLD = 0.42
