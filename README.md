@@ -16,8 +16,8 @@ It transforms raw text into embeddings, stores them in a vector database, and re
 
 ## Run on Colab
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
-(https://colab.research.google.com/github/NidhiKamal05/AI-RAG-System/blob/main/path/to/notebook.ipynb)
+[![Open In 
+Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/NidhiKamal05/AI-RAG-System/blob/main/notebook.ipynb)
 
 
 ---
