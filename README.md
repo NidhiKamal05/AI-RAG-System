@@ -117,20 +117,20 @@ DATA_PATH = "/content/drive/MyDrive/your_project_folder/"
 
 - Applies:
 
-1. Cleaning
+	- Cleaning
 
-2. Chunking
+	- Chunking
 
-3. Embedding
+	- Embedding
 
 
 - Stores:
 
-1. Text
+	- Text
 
-2. Embeddings
+	- Embeddings
 
-3. Metadata
+	- Metadata
 
 
 
@@ -147,11 +147,11 @@ DATA_PATH = "/content/drive/MyDrive/your_project_folder/"
 
 - Process:
 
-1. Query → embedding
+	- Query → embedding
 
-2. Similarity search
+	- Similarity search
 
-3. Return top chunks
+	- Return top chunks
 
 
 
@@ -163,20 +163,20 @@ DATA_PATH = "/content/drive/MyDrive/your_project_folder/"
 
 1. Logic:
 
-- Compare top 2 similarity scores
+	- Compare top 2 similarity scores
 
-- Compute difference (gap)
+	- Compute difference (gap)
 
 
 2. Confidence Levels:
 
-- High score: > 0.42
-- Medium score: = 0.42 AND gap ≥ 0.01
-- Low Ignored
+	- High score: > 0.42
+	- Medium score: = 0.42 AND gap ≥ 0.01
+	- Low Ignored
 
 
--- Filters irrelevant results
--- Ensures better precision
+→ Filters irrelevant results
+→ Ensures better precision
 
 
 ---
@@ -271,11 +271,11 @@ AI-RAG-System/
 - Tested with multiple queries
 
 
-Tuned:
+→ Tuned:
 
-- Similarity Threshold = 0.42
+	- Similarity Threshold = 0.42
 
-- Gap = 0.01
+	- Gap = 0.01
 
 
 
@@ -319,9 +319,9 @@ Nidhi Kamal
 
 ## Support
 
-If you found this project helpful:
-⭐ Star this repository
-🔗 Share it on LinkedIn
+If you found this project helpful:<br>
+⭐ Star this repository<br>
+🔗 Share it on LinkedIn<br>
 
 
 ---
