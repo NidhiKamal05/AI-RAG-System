@@ -1,20 +1,20 @@
-#🚀 AI RAG System
+# AI RAG System
 
 
 ---
 
-📌 Overview
+## Overview
 
 This project implements a Retrieval-Augmented Generation (RAG) pipeline using Python documentation as the knowledge base.
 
 It transforms raw text into embeddings, stores them in a vector database, and retrieves the most relevant chunks based on semantic similarity.
 
-✨ Built to simulate a semantic search engine with confidence-based filtering for better accuracy.
+### Built to simulate a semantic search engine with confidence-based filtering for better accuracy.
 
 
 ---
 
-🚀 Run on Colab
+## Run on Colab
 
 []
 (https://colab.research.google.com/github/NidhiKamal05/AI-RAG-System/blob/main/notebook.ipynb)
@@ -22,11 +22,7 @@ It transforms raw text into embeddings, stores them in a vector database, and re
 
 ---
 
-🧠 Architecture
-
-Raw Data → Cleaning → Chunking → Embeddings → ChromaDB
-                                                  ↓
-Query → Embedding → Retrieval → Guard → Final Results
+## Architecture
 
 <p align="center">
 	<img src="assets/rag_pipeline_architecture.png" width="700"/>
@@ -39,291 +35,289 @@ Query → Embedding → Retrieval → Guard → Final Results
 
 ---
 
-🛠️ Tech Stack
+## Tech Stack
 
-Python
+- Python
 
-Transformers (AutoTokenizer)
+- Transformers (AutoTokenizer)
 
-Sentence Transformers (all-MiniLM-L6-v2)
+- Sentence Transformers (all-MiniLM-L6-v2)
 
-ChromaDB (Vector Database)
+- ChromaDB (Vector Database)
 
-Google Colab
+- Google Colab
 
-Google Drive
+- Google Drive
 
 
 
 ---
 
-☁️ Google Colab + Drive Integration
+## Google Colab + Drive Integration
 
 This project is implemented and tested entirely on Google Colab with dataset stored in Google Drive.
 
-🔗 Setup
+### Setup
 
 from google.colab import drive
 drive.mount('/content/drive')
 
 DATA_PATH = "/content/drive/MyDrive/your_project_folder/"
 
-✅ Enables seamless file access and persistence
+- Enables seamless file access and persistence
 
 
 ---
 
-📂 Project Workflow
+## Project Workflow
 
-🧹 Data Cleaning
+### Data Cleaning
 
-Removed \r
+- Removed \r
 
-Split using \n
+- Split using \n
 
-Stripped whitespace
+- Stripped whitespace
 
-Rejoined cleaned text
-
-
-
----
-
-✂️ Chunking
-
-Implemented token-based chunking with overlap
-
-Tokenizer: TinyLlama (via Transformers)
-
-Chunk size: 400 tokens
-
-Overlap: 50 tokens
-
-
----
-
-🔢 Embeddings
-
-Model: all-MiniLM-L6-v2 (via Sentence Transformers)
-
-Converts text → vectors
-
-Normalized for cosine similarity
+- Rejoined cleaned text
 
 
 
 ---
 
-📥 Data Ingestion
+### Chunking
 
-Reads files from Google Drive
+- Implemented token-based chunking with overlap (fixed size strategy)
 
+- Tokenizer: TinyLlama (via Transformers)
 
-Applies:
+- Chunk size: 400 tokens
 
-Cleaning
-
-Chunking
-
-Embedding
+- Overlap: 50 tokens
 
 
-Stores:
+---
 
-Text
+### Embeddings
 
-Embeddings
+- Model: all-MiniLM-L6-v2 (via Sentence Transformers)
 
-Metadata
+- Converts text → vectors
+
+- Normalized for cosine similarity
 
 
 
 ---
 
-🔍 Retrieval
+### Data Ingestion
 
-Database: ChromaDB
-
-Metric: Cosine Similarity
-
-Top K: 3
+- Reads files from Google Drive
 
 
-Process:
+- Applies:
 
-Query → embedding
+1. Cleaning
 
-Similarity search
+2. Chunking
 
-Return top chunks
+3. Embedding
+
+
+- Stores:
+
+1. Text
+
+2. Embeddings
+
+3. Metadata
+
+
+
+---
+
+### Retrieval
+
+- Database: ChromaDB
+
+- Metric: Cosine Similarity
+
+- Top K: 3
+
+
+- Process:
+
+1. Query → embedding
+
+2. Similarity search
+
+3. Return top chunks
 
 
 
 ---
 
-🛡️ Guard System (Key Feature 🔥)
+### Guard System (Key Feature 🔥)
 
-Improves reliability using confidence scoring
+- Improves reliability using confidence scoring
 
-⚙️ Logic:
+1. Logic:
 
-Compare top 2 similarity scores
+- Compare top 2 similarity scores
 
-Compute difference (gap)
-
-
-📊 Confidence Levels:
-
-Level	Condition
-
-High	score > 0.42
-Medium	score = 0.42 AND gap ≥ 0.01
-Low	Ignored
+- Compute difference (gap)
 
 
-✅ Filters irrelevant results
-✅ Ensures better precision
+2. Confidence Levels:
+
+- High score: > 0.42
+- Medium score: = 0.42 AND gap ≥ 0.01
+- Low Ignored
+
+
+-- Filters irrelevant results
+-- Ensures better precision
 
 
 ---
 
-🔄 Pipeline
+### Pipeline
 
 Query → Embedding → Retrieval → Guard → Output
 
 
 ---
 
-📁 Project Structure
+## Project Structure
 
-project/
-│
-├── data/
-│   └── text/
-│       └── (Python tutorial files)
-│
-├── db/
-│   └── chroma_db/
-│       └── (stored embeddings collection)
-│
-├── ingestion/
-│   ├── __init__.py
-│   └── chunk.py
-│   └── ingestion.py
-│
-├── models/
-│   └── __init__.py
-│   └── embedding_model.py
-│
-├── pipeline/
-│   └── __init__.py
-│   └── pipeline.py
-│
-├── rag/
-│   ├── __init__.py
-│   ├── guard.py
-│   └── retriever.py
-│
-├── settings/
-│   └── __init__.py
-│   └── config.py
-│
-└── notebook.ipynb
+AI-RAG-System/
+- data/
+	- text/
+        - (Python tutorial files)
 
+- db/
+    - chroma_db/
+        - (stored embeddings collection)
 
----
+- ingestion/
+	- __init__.py
+	- chunk.py
+	- ingestion.py
 
-📌 Structure Explanation
+- models/
+	- __init__.py
+	- embedding_model.py
 
-data/ → Contains raw dataset (Python documentation)
+- pipeline/
+	- __init__.py
+	- pipeline.py
 
-db/ → Stores vector database (ChromaDB embeddings)
+- rag/
+	- __init__.py
+	- guard.py
+	- retriever.py
 
-ingestion/ → Handles cleaning, chunking, and data ingestion
+- settings/
+	- __init__.py
+	- config.py
 
-models/ → Embedding model logic
-
-pipeline/ → End-to-end RAG pipeline
-
-rag/ → Core retrieval + guard logic
-
-settings/ → Configuration (thresholds, paths, etc.)
-
-notebook.ipynb → Colab notebook for running and testing
-
+- notebook.ipynb
 
 
 ---
 
-✨ Features
+### Structure Explanation
 
-✅ End-to-end RAG pipeline
+- data/ → Contains raw dataset (Python documentation)
 
-✅ Semantic search system
+- db/ → Stores vector database (ChromaDB embeddings)
 
-✅ Token-based chunking with overlap
+- ingestion/ → Handles cleaning, chunking, and data ingestion
 
-✅ Confidence-based filtering (Guard)
+- models/ → Embedding model logic
 
-✅ Modular architecture
+- pipeline/ → End-to-end RAG pipeline
 
-✅ Google Colab + Drive integration
+- rag/ → Core retrieval + guard logic
+
+- settings/ → Configuration (thresholds, paths, etc.)
+
+- notebook.ipynb → Colab notebook for running and testing
 
 
 
 ---
 
-🧪 Experimentation
+## Features
 
-Tested with multiple queries
+- End-to-end RAG pipeline
+
+- Semantic search system
+
+- Token-based chunking with overlap
+
+- Confidence-based filtering (Guard)
+
+- Modular architecture
+
+- Google Colab + Drive integration
+
+
+
+---
+
+## Experimentation
+
+- Tested with multiple queries
 
 
 Tuned:
 
-Similarity Threshold = 0.42
+- Similarity Threshold = 0.42
 
-Gap = 0.01
-
-
-
----
-
-💡 Use Cases
-
-📚 Query Python documentation intelligently
-
-🔍 Semantic search engine
-
-🤖 Base for chatbot systems
+- Gap = 0.01
 
 
 
 ---
 
-🔮 Future Improvements
+## Use Cases
 
-Add LLM for answer generation
+- Query Python documentation intelligently
 
-Hybrid search (BM25 + embeddings)
+- Semantic search engine
 
-Build UI (Streamlit / FastAPI)
-
-Improve ranking mechanism
-
-Implement semantic chunking
+- Base for chatbot systems
 
 
 
 ---
 
-👩‍💻 Author
+## Future Improvements
+
+- Context building and prompt generation
+
+- Add LLM for answer generation
+
+- Build UI
+
+- Hybrid search
+
+- Implement semantic chunking
+
+- Improve ranking mechanism
+
+
+---
+
+## Author
 
 Nidhi Kamal
 
 
 ---
 
-⭐ Support
+## Support
 
 If you found this project helpful:
 ⭐ Star this repository
@@ -331,25 +325,3 @@ If you found this project helpful:
 
 
 ---
-
-⚠️ Note
-
-Replace:
-
-YOUR_USERNAME/YOUR_REPO
-
-with your actual GitHub repo link to make the Colab button work ✅
-
-
----
-
-If you want next level:
-
-🔥 Resume bullet points from this project
-
-🔥 Interview Q&A (very important)
-
-🔥 LinkedIn post (high engagement)
-
-
-Just tell me 👍
