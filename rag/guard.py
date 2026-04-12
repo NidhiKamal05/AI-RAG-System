@@ -34,11 +34,10 @@ class Guard :
             similarity = chunk["similarity"]
 
             if similarity > SIMILARITY_THRESHOLD :
-                chunk["confidence"] = "HIGH"
-                filtered_chunks.append(chunk)
-
-            elif similarity == SIMILARITY_THRESHOLD and gap >= GAP :
-                chunk["confidence"] = "MEDIUM"
+                if gap > GAP :
+                    chunk["confidence"] = "HIGH"
+                elif gap <= GAP :
+                    chunk["confidence"] = "MEDIUM"
                 filtered_chunks.append(chunk)
         
         filtered_chunks.sort(key = lambda x: x["similarity"], reverse = True)
