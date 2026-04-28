@@ -15,3 +15,5 @@ MAX_TIME = 100
 MAX_GENERATION_TIME = 45
 MAX_ALLOWED_CHUNKS = 2
 REFUSAL_MESSAGE = "Sorry, I cant't help with this. Can I help you with something else?"
+GROQ_MODEL = "llama-3.3-70b-versatile"
+MAX_RETRIES = 3
